@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 30px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Result</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>X Min</th>
+                <th>Y Min</th>
+                <th>X Max</th>
+                <th>Y Max</th>
+                <th>Confidence</th>
+                <th>Class ID</th>
+                <th>Class Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in tables[0].iterrows() %}
+            <tr>
+                <td>{{ row['x_min'] }}</td>
+                <td>{{ row['y_min'] }}</td>
+                <td>{{ row['x_max'] }}</td>
+                <td>{{ row['y_max'] }}</td>
+                <td>{{ row['confidence'] }}</td>
+                <td>{{ row['class_id'] }}</td>
+                <td>{{ row['class_name'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
